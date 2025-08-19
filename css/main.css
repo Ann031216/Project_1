@@ -25,24 +25,28 @@ dl {
 }
 
 .header,
-.main .footer {
+.main,
+.footer {
   padding: 0 calc(50vw - 585px);
 }
 @media screen and (max-width: 1200px) {
   .header,
-  .main .footer {
-    padding: 0 calc(50vw - (585px - 12%));
+  .main,
+  .footer {
+    padding: 0 calc(50vw - (585px - 6%));
   }
 }
 @media screen and (max-width: 992px) {
   .header,
-  .main .footer {
+  .main,
+  .footer {
     padding: 0 calc(50vw - (585px - 27%));
   }
 }
 @media screen and (max-width: 768px) {
   .header,
-  .main .footer {
+  .main,
+  .footer {
     padding: 0 15px;
   }
 }
@@ -52,9 +56,7 @@ dl {
     min-height: 100vh;
 }*/
 .btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* @include flex(center, center);*/
   gap: 1.5vw;
 }
 
@@ -101,25 +103,11 @@ main > section {
   gap: 2.5vw;
   padding: 0 30px;
 }
-@media screen and (max-width: 992px) {
-  .menu {
-    position: absolute;
-    right: -100%;
-    top: 68px;
-    width: 340px;
-    flex-direction: column;
-    background-color: #aacedc;
-    z-index: 2;
-    transition: all 0.6s;
-    padding: 0 0;
-    gap: 0;
-  }
-}
 .menu__link {
   position: relative;
   display: inline-block;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 0.788rem;
   font-weight: 500;
   text-decoration: none;
   color: #212353;
@@ -154,11 +142,74 @@ main > section {
   }
 }
 
+/* ------ АДАПТИВ ХЕДЕРА <= 664px ------ */
+@media (max-width: 664px) {
+  .header {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+  }
+  /* Лого залишаємо зліва, меню займає решту простору */
+  .logo {
+    flex: 0 0 auto;
+  }
+  .nav {
+    flex: 1 1 auto;
+    order: 0;
+  }
+  .menu {
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+  /* Кнопка переходить на новий рядок під меню та логотипом */
+  .btns {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    order: 1;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 10px;
+  }
+  .logo {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  .nav {
+    flex: 1 1 100%;
+    order: 1;
+    width: 100%;
+  }
+  .menu {
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .btns {
+    flex-basis: 100%;
+    order: 2;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
 .btn {
   cursor: pointer;
   position: relative;
-  padding-right: 3em;
   color: #000;
+  min-width: 210px;
+  justify-content: center;
+  /*Додаємо стрілку лише для кнопок, які не мають .btn_no_arrow*/
 }
 .btn_violet {
   background: #9C69E2;
@@ -218,9 +269,11 @@ main > section {
   transform: translate(4px, -50%) rotate(45deg);
   border-color: #fff;
 }
-
-.btn_no_arrow {
-  padding-right: 1.5em;
+@media screen and (max-width: 480px) {
+  .btn.btn_request {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
 }
 
 .section {
@@ -229,13 +282,13 @@ main > section {
   justify-content: space-between;
   max-width: 1170px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 30px 20px;
   position: relative;
 }
 .section_content {
   flex: 1;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* текст завжди поверх картинки*/
   display: flex;
   flex-direction: column;
 }
@@ -248,7 +301,7 @@ main > section {
   margin-bottom: 20px;
 }
 .section_text {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.2em;
   color: #4B5D68;
@@ -275,7 +328,7 @@ main > section {
   display: block;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 997px) {
   .section {
     flex-direction: column;
     text-align: center;
@@ -303,7 +356,7 @@ main > section {
     margin-left: 0;
   }
 }
-@media screen and (max-width: 992px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .section {
     padding: 30px 15px;
   }
@@ -350,7 +403,7 @@ main > section {
   margin-bottom: 40px;
 }
 .section_2_text {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
   color: #4B5D68;
@@ -377,7 +430,7 @@ main > section {
   transform: translateY(-10px) scale(1.05);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 997px) {
   .section_2 {
     flex-direction: column;
     align-items: center;
@@ -423,13 +476,7 @@ main > section {
   text-align: center;
 }
 .section_3_heading {
-  width: 100%;
   max-width: 638px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
 }
 .section_3_heading .section_3_title {
   font-family: "Work Sans", sans-serif;
@@ -444,7 +491,7 @@ main > section {
 .section_3_heading .section_3_subtitle {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #4B5D68;
   margin: 0 0 30px 0;
@@ -456,57 +503,20 @@ main > section {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
+  align-items: stretch;
 }
 .section_3_cards .card {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-start;
   max-width: 570px;
+  min-height: 320px;
   position: relative;
   gap: 40px;
-  /* різні фони для кожної картки */
+  padding: 40px 30px;
+  box-sizing: border-box;
 }
-.section_3_cards .card::before {
-  content: "";
-  position: absolute;
-  top: 0rem;
-  left: 9rem;
-  width: 75%;
-  height: 100%;
-  border-radius: 80px;
-  overflow: hidden;
-  z-index: 0;
-}
-.section_3_cards .card:nth-child(1)::before {
-  content: "";
-  background: url("../assets/svg/bg-image_1.svg") no-repeat, rgba(205, 243, 243, 0.4431372549);
-  background-position: 80% 15%;
-  background-size: auto;
-}
-.section_3_cards .card:nth-child(2)::before {
-  content: "";
-  background: url("../assets/svg/bg-image_2.svg") no-repeat, #F6F0FD;
-  background-position: 80% 85%;
-  background-size: auto;
-}
-.section_3_cards .card:nth-child(3)::before {
-  content: "";
-  background: url("../assets/svg/bg-image_3.svg") no-repeat, #FEF0F8;
-  background-position: 90% 5%;
-  background-size: auto;
-}
-.section_3_cards .card:nth-child(4)::before {
-  content: "";
-  background: url("../assets/svg/bg-image_4.svg") no-repeat center, #EAF6FC;
-}
-.section_3_cards .card .card_content {
-  position: relative;
-  margin: 62px 70px 62px 0px;
-  max-width: 230px;
-  text-align: left;
-  z-index: 1;
-}
-.section_3_cards .card .card_content .card_title {
+.section_3_cards .card_title {
   font-family: "Work Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
@@ -514,61 +524,116 @@ main > section {
   color: #212353;
   margin-bottom: 10px;
 }
-.section_3_cards .card .card_content .card_text {
-  font-family: "Monserrat", sans-serif;
+.section_3_cards .card_text {
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+  line-height: 160%;
   color: #4B5D68;
-  line-height: 1.6;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
-.section_3_cards .card .card_content .card_link {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: #212353;
-  font-family: "Monserrat", sans-serif;
-  letter-spacing: 0.01rem;
-  font-weight: 700;
-  font-size: 1rem;
-  padding-right: 30px;
-  transition: background-color 0.3s, color 0.3s;
-  /*стрілка */
-}
-.section_3_cards .card .card_content .card_link::after {
+.section_3_cards .card::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 80%;
-  margin-left: 0.5rem;
-  width: 18px;
-  height: 1px;
-  background-color: #9c69e2;
-  transform: translateY(-50%);
-  transition: opacity 0.3s, transform 0.3s;
+  top: 0;
+  left: 9rem;
+  width: 75%;
+  height: 100%;
+  border-radius: 80px;
+  overflow: hidden;
+  z-index: 0;
 }
-.section_3_cards .card .card_content .card_link span.arrow-head {
+.section_3_cards .card::after {
+  content: "";
   position: absolute;
+  right: 60%;
   top: 50%;
-  left: calc(80% + 18px);
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid #9c69e2;
-  border-right: 1px solid #9c69e2;
-  transform: translateY(-50%) rotate(45deg);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.section_3_cards .card img {
-  width: fit-content;
-  height: fit-content;
-  display: block;
-  position: relative;
+  transform: translateY(-50%);
+  width: 220px;
+  height: 220px;
+  background: url("../assets/img/card-image.png") no-repeat center/contain;
   z-index: 1;
 }
+.section_3_cards .card:nth-child(2)::after {
+  background-image: url("../assets/img/card-image_(1).png");
+}
+.section_3_cards .card:nth-child(3)::after {
+  background-image: url("../assets/img/card-image_(2).png");
+}
+.section_3_cards .card:nth-child(4)::after {
+  background-image: url("../assets/img/card-image_(3).png");
+}
+.section_3_cards .card:nth-child(1)::before {
+  background: url("../assets/svg/bg-image_1.svg") no-repeat, rgba(205, 243, 243, 0.4431372549);
+  background-position: 80% 15%;
+  background-size: auto;
+}
+.section_3_cards .card:nth-child(2)::before {
+  background: url("../assets/svg/bg-image_2.svg") no-repeat, #F6F0FD;
+  background-position: 80% 85%;
+  background-size: auto;
+}
+.section_3_cards .card:nth-child(3)::before {
+  background: url("../assets/svg/bg-image_3.svg") no-repeat, #FEF0F8;
+  background-position: 90% 5%;
+  background-size: auto;
+}
+.section_3_cards .card:nth-child(4)::before {
+  background: url("../assets/svg/bg-image_4.svg") no-repeat center, #EAF6FC;
+}
+.section_3_cards .card .card_content {
+  margin-left: 45%;
+  max-width: 230px;
+  text-align: left;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.section_3_cards .card .card_link {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  color: #212353;
+  text-decoration: none;
+  padding-right: 25px;
+  align-self: flex-start;
+}
+.section_3_cards .card .card_link::after {
+  content: "";
+  position: absolute;
+  right: 0.1em;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid #9C69E2;
+  border-top: 1px solid #9C69E2;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.section_3_cards .card .card_link::before {
+  content: "";
+  position: absolute;
+  right: 0.1em;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background-color: #9C69E2;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 997px) {
   .section_3_cards {
     grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+  .section_3_cards .card {
+    width: 100%;
   }
   .section_3_heading .section_3_title {
     font-size: 2rem;
@@ -621,6 +686,7 @@ main > section {
   align-items: flex-start;
   flex: 1;
   gap: 15px;
+  position: relative;
 }
 .section_4_item .avatar {
   max-width: 90px;
@@ -634,10 +700,11 @@ main > section {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  text-align: left;
   height: 100%;
 }
 .section_4_item .section_4_title {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 160%;
@@ -646,37 +713,58 @@ main > section {
   margin-top: 0;
 }
 .section_4_item .section_4_subtitle {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 160%;
   color: #9C69E2;
 }
-@media screen and (max-width: 992px) {
-  .section_4 .section_4_wrap {
+
+@media screen and (max-width: 997px) {
+  .section_4_wrap {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-left: 0;
     padding-right: 0;
+    padding-right: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
-  .section_4 .section_4_item {
-    max-width: 50%;
+  .section_4_item {
+    max-width: 90%;
     width: 100%;
     margin-bottom: 20px;
   }
 }
-
 .footer {
+  padding: 0;
   margin: 0 auto;
+  margin-top: 120px;
   width: 100%;
   max-width: 1170px;
+}
+.footer_copyright {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 1.8;
+  color: #4B5D68;
+  margin-top: 20px;
+  text-align: left;
+  max-width: 1170px;
+  margin: 20px auto 0 0;
 }
 .footer_header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.footer_header .footer_top {
+  flex: 1 1 auto;
 }
 .footer_header .footer_top .footer_title {
   font-family: "Work Sans", sans-serif;
@@ -686,25 +774,267 @@ main > section {
   color: #212353;
 }
 .footer_header .footer_top .footer_subtitle {
-  font-family: "Monserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1rem;
   color: #4B5D68;
 }
-.footer_header .footer_navigation .footer_container {
+.footer .footer_container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.footer .footer_container .footer_logo {
+  flex: 1 1 200px;
+  margin-right: 200px;
+}
+.footer .footer_container .footer_logo .logo_img {
+  max-width: 200px;
+}
+.footer .footer_container .footer_logo .company-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+.footer .footer_container .footer_logo address {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  line-height: 2.4;
+  margin-top: 10px;
+}
+.footer .footer_container .footer_logo address a {
+  color: #4B5D68;
+  text-decoration: none;
+}
+.footer .footer_container .footer_logo address a:hover {
+  color: #8A40EE;
+}
+.footer .footer_container .nav {
+  flex: 1 1 150px;
+}
+.footer .footer_container .nav .nav__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 160%;
+  margin-bottom: 30px;
+}
+.footer .footer_container .nav .menu {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
 }
-.footer_header .footer_navigation .footer_container .footer_link {
-  font-family: "Monserrat", sans-serif;
+.footer .footer_container .nav .menu .menu__item {
+  margin-bottom: 0;
+}
+.footer .footer_container .nav .menu .menu__item .menu__link {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   color: #4B5D68;
   text-decoration: none;
   transition: color 0.3s;
 }
-.footer_header .footer_navigation .footer_container .footer_link:hover {
+.footer .footer_container .nav .menu .menu__item .menu__link:hover {
   color: #8A40EE;
+}
+.footer .social {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+.footer .social__item {
+  margin: 0;
+}
+.footer .social__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(160, 159, 158, 0.3098039216);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #FFFFFF;
+}
+.footer .social__link svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  z-index: 2;
+  position: relative;
+}
+.footer .social__link .social__icon {
+  fill: currentColor;
+  transform: scale(2);
+  transform-origin: center;
+}
+.footer .social__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  z-index: 1;
+}
+.footer .social__link.facebook:hover::before {
+  background-color: #fff;
+  border-color: #4267B2;
+}
+.footer .social__link.facebook:hover {
+  color: #4267B2;
+}
+.footer .social__link.twitter:hover::before {
+  background-color: #fff;
+  border-color: #1DA1F2;
+}
+.footer .social__link.twitter:hover {
+  color: #1DA1F2;
+}
+.footer .social__link.instagram:hover::before {
+  background-color: #fff;
+  border-color: #C13584;
+}
+.footer .social__link.instagram:hover {
+  color: #C13584;
+}
+
+/* ------ АДАПТИВ <= 997px ------ */
+@media (max-width: 997px) {
+  .footer {
+    margin-top: 80px;
+  }
+  .footer .footer_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
+    grid-template-rows: auto auto; /* 2 ряди: 1 — лого/about/help, 2 — social */
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
+  }
+  /* Лого + адреса — перша колонка, перший рядок */
+  .footer .footer_logo {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+  }
+  /* About — середня колонка, перший рядок */
+  .footer nav[aria-label=About] {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: start;
+  }
+  /* Help — права колонка, перший рядок */
+  .footer nav[aria-label=Help] {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+    align-self: start;
+  }
+  /* Social — другий рядок, по центру на всю ширину */
+  .footer nav[aria-label=Social],
+  .footer .social {
+    grid-column: 1/-1;
+    grid-row: 2;
+    justify-self: center;
+    display: flex;
+    gap: 15px;
+  }
+  /* Перекриваємо базовий flex-стиль .nav (щоб не заважав grid) */
+  .footer .nav {
+    display: block;
+    text-align: center;
+  }
+  /* Меню всередині nav — вертикальні пункти */
+  .footer .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .footer .nav .nav__title {
+    margin-bottom: 8px;
+  }
+  .footer_copyright {
+    text-align: center;
+    margin: 20px auto 0;
+  }
+}
+/* ------ АДАПТИВ <= 768px ------ */
+@media (max-width: 768px) {
+  .footer .footer_container {
+    gap: 10px;
+  }
+}
+/* ------ АДАПТИВ <= 480px ------ */
+@media (max-width: 480px) {
+  .footer_container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+  }
+  .footer_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer_logo .company-name {
+    margin-left: 0;
+  }
+  .footer_logo address {
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+  /* About і Help — вертикально один під одним */
+  .footer_container .nav {
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .footer_container .nav .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+  /* Соціальні мережі по центру */
+  .footer_container .nav:nth-of-type(3) {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .social__link {
+    width: 40px;
+    height: 40px;
+  }
+  .social__link svg {
+    width: 20px;
+    height: 20px;
+  }
+  .footer_copyright {
+    text-align: center;
+    margin: 20px auto 0;
+  }
 }/*# sourceMappingURL=main.css.map */
