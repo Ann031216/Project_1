@@ -688,9 +688,11 @@ main > section {
     gap: 20px;
     width: 100%;
   }
-.section_3_cards .card {
+
+  .section_3_cards .card {
     width: 100%; 
   }
+
   .section_3_heading .section_3_title {
     font-size: 2rem;
   }
@@ -700,6 +702,66 @@ main > section {
   }
 }
 
+@media screen and (max-width: 645px) {
+  .section_3 {
+    padding: 0 15px;
+
+    &_heading {
+      padding: 0 15px;
+      .section_3_title {
+        font-size: 1.4rem;
+      }
+      .section_3_subtitle {
+        font-size: 0.95rem;
+      }
+    }
+
+    &_cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      width: 100%;
+
+      .card {
+        flex-direction: column; 
+        align-items: center;
+        min-height: auto;
+        padding: 20px;
+        position: relative;
+
+        
+        &::after {
+          position: relative;
+          width: 80%;
+          aspect-ratio: 1 / 1; 
+          margin-bottom: 15px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          top: 0;
+          right: auto;
+          transform: none;
+          z-index: 1;
+        }
+
+        .card_content {
+          margin-left: 0;
+          max-width: 100%;
+          text-align: center;
+        }
+
+        .card_text {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+
+        &_title {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
 .section_4 {
   width: 100%;
   max-width: $width_container;
