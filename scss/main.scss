@@ -34,13 +34,8 @@ dl {
   }
 }
 
-/*body {
-    color: $font_color_main;
-    min-height: 100vh;
-}*/
-
 .btns {
-   /* @include flex(center, center);*/
+   
     gap: 1.5vw;
 }
 
@@ -130,10 +125,10 @@ main > section {
 
     }
 }
-/* ------ АДАПТИВ ХЕДЕРА <= 664px ------ */
+
 @media (max-width: 664px) {
  .header {
-    flex-wrap: wrap;       // дозволяє елементам переноситись на новий рядок
+    flex-wrap: wrap;       
     align-items: center;
     gap: 15px;
   }
@@ -149,7 +144,7 @@ main > section {
   }
 
   .menu {
-    justify-content: space-between;  // пункти меню розтягуються по ширині
+    justify-content: space-between;  
     width: 100%;
     gap: 10px;
   }
@@ -160,14 +155,14 @@ main > section {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-    order: 1;              // кнопка під меню
+    order: 1;              
   }
 }
 @media (max-width: 480px) {
   .header {
-    flex-direction: column;   // всі елементи вертикально
-    align-items: flex-start;  // можна змінити на center, якщо хочеш центрування
-    gap: 10px;                // компактний відступ
+    flex-direction: column;   
+    align-items: flex-start; 
+    gap: 10px;                
     padding: 20px 10px;
   }
 
@@ -298,7 +293,7 @@ main > section {
   &_content {
     flex: 1;
     position: relative;
-    z-index: 2; /* текст завжди поверх картинки*/
+    z-index: 2; // текст завжди поверх картинки
     display: flex;
     flex-direction: column;
   }
@@ -326,7 +321,7 @@ main > section {
     position: relative;
     z-index: 2;
     margin-top: 20px;
-    align-self: flex-start; // кнопка під текстом зліва
+    align-self: flex-start; 
   }
 
   &_img {
@@ -373,7 +368,7 @@ main > section {
     &_img {
       margin: 0 auto;
       max-width: 100%;
-      margin-top: 20px; // картинка під текстом
+      margin-top: 20px; 
       margin-left: 0;
     }
   }
@@ -489,11 +484,11 @@ main > section {
     gap: 15px;
 
     &_title {
-      font-size: 1.8rem; /* менший заголовок*/
+      font-size: 1.8rem; 
     }
 
     &_text {
-      font-size: 1rem; /* менший текст*/
+      font-size: 1rem; 
       line-height: 1.4;
     }
 
@@ -574,7 +569,7 @@ main > section {
         line-height: 160%;
         color: $font_color_text;
         margin-bottom: 20px;
-        flex-grow: 1; // розтягує середній блок
+        flex-grow: 1; // розтягуємо середній блок
       }
 
       // декоративний фон картки
@@ -1046,7 +1041,7 @@ main > section {
   }
 }
 
-/* ------ АДАПТИВ <= 997px ------ */
+
 @media (max-width: 997px) {
    .footer {
     margin-top: 80px;
@@ -1123,12 +1118,12 @@ main > section {
   }
 }
 
-/* ------ АДАПТИВ <= 768px ------ */
+
 @media (max-width: 768px) {
   .footer .footer_container { gap: 10px; }
 }
 
-/* ------ АДАПТИВ <= 480px ------ */
+
 @media (max-width: 480px) {
   .footer_container {
     display: flex !important;         // скидаємо grid з попередніх медіа

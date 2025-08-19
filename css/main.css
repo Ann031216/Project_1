@@ -51,12 +51,7 @@ dl {
   }
 }
 
-/*body {
-    color: $font_color_main;
-    min-height: 100vh;
-}*/
 .btns {
-  /* @include flex(center, center);*/
   gap: 1.5vw;
 }
 
@@ -142,7 +137,6 @@ main > section {
   }
 }
 
-/* ------ АДАПТИВ ХЕДЕРА <= 664px ------ */
 @media (max-width: 664px) {
   .header {
     flex-wrap: wrap;
@@ -288,7 +282,7 @@ main > section {
 .section_content {
   flex: 1;
   position: relative;
-  z-index: 2; /* текст завжди поверх картинки*/
+  z-index: 2;
   display: flex;
   flex-direction: column;
 }
@@ -454,10 +448,10 @@ main > section {
     gap: 15px;
   }
   .section_2_title {
-    font-size: 1.8rem; /* менший заголовок*/
+    font-size: 1.8rem;
   }
   .section_2_text {
-    font-size: 1rem; /* менший текст*/
+    font-size: 1rem;
     line-height: 1.4;
   }
   .section_2_img {
@@ -962,7 +956,6 @@ main > section {
   color: #C13584;
 }
 
-/* ------ АДАПТИВ <= 997px ------ */
 @media (max-width: 997px) {
   .footer {
     margin-top: 80px;
@@ -1030,13 +1023,11 @@ main > section {
     margin: 20px auto 0;
   }
 }
-/* ------ АДАПТИВ <= 768px ------ */
 @media (max-width: 768px) {
   .footer .footer_container {
     gap: 10px;
   }
 }
-/* ------ АДАПТИВ <= 480px ------ */
 @media (max-width: 480px) {
   .footer_container {
     display: flex !important;
